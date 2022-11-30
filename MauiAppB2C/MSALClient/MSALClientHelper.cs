@@ -4,6 +4,7 @@
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Client.Extensions.Msal;
 using Microsoft.IdentityModel.Abstractions;
+using System.Diagnostics;
 
 namespace MAUIB2C.MSALClient
 {
