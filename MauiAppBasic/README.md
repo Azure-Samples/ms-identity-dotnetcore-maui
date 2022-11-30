@@ -7,7 +7,7 @@ languages:
 products:
     - maui
     - azure-active-directory
-urlFragment: active-directory-xamarin-native-v2
+urlFragment: ms-identity-dotnetcore-maui
 extensions:
 - services: ms-identity
 - platform: MAUI
@@ -61,7 +61,7 @@ This sample demonstrates a MAUI (iOS, Android, UWP) app using [MSAL.NET](https:/
 From your shell or command line:
 
 ```console
-git clone https://github.com/Azure-Samples/active-directory-xamarin-native-v2.git
+git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-maui.git
 ```
 
 or download and extract the repository *.zip* file.
@@ -71,7 +71,7 @@ or download and extract the repository *.zip* file.
 ### Step 2: Navigate to project folder
 
 ```console
-cd MAUI/MauiAppBasic
+cd MauiAppBasic
 ```
 
 ### Step 3: Register the sample application(s) in your tenant

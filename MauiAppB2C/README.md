@@ -7,7 +7,7 @@ languages:
 products:
  - maui
  - azure-active-directory-b2c
-urlFragment: active-directory-xamarin-native-v2
+urlFragment: ms-identity-dotnetcore-maui
 extensions:
 - services: ms-identity
 - platform: MAUI
@@ -18,8 +18,6 @@ extensions:
 ---
 
 # Integrate Microsoft Identity for a B2C tenant into a MAUI app using MSAL
-
-[![Build status](https://identitydivision.visualstudio.com/IDDP/_apis/build/status/AAD%20Samples/.NET%20client%20samples/CI%20of%20Azure-Samples%20--%20xamarin-native-v2)](https://identitydivision.visualstudio.com/IDDP/_build/latest?definitionId=32)
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -67,8 +65,7 @@ To run this sample you will need:
 From your shell or command line:
 
 ```console
-git clone https://github.com/Azure-Samples/active-directory-xamarin-native-v2.git
-cd MAUI/MauiAppB2C
+git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-maui.git
 ```
 
 or download and extract the repository *.zip* file.
@@ -78,7 +75,7 @@ or download and extract the repository *.zip* file.
 ### Step 2: Navigate to project folder
 
 ```console
-cd MAUI/MauiAppB2C
+cd MauiAppB2C
 ```
 
 ### Step 3: Register the sample application(s) in your tenant
