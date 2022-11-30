@@ -9,7 +9,7 @@ description: "You have a MAUI application and you want it to consume Microsoft G
 urlFragment: ms-identity-dotnetcore-maui
 ---
 
-# A MAUI mobile or desktop application using Microsoft identity platform
+# A MAUI mobile or desktop application using Azure AD for authentication
 
 ## About this sample
 
