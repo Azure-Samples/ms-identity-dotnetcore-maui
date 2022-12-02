@@ -200,6 +200,7 @@ namespace MAUI.MSALClient
             catch (MsalException msalEx)
             {
                 Debug.WriteLine($"Error Acquiring Token interactively:{Environment.NewLine}{msalEx}");
+                throw msalEx;
             }
 
             return this.AuthResult.AccessToken;
@@ -248,7 +249,7 @@ namespace MAUI.MSALClient
             // If the operating system has UI
             if (this.PublicClientApplication.IsUserInteractive())
             {
-                if (UseEmbedded)
+                if (PublicClientSingleton.Instance.UseEmbedded)
                 {
                     return await this.PublicClientApplication.AcquireTokenInteractive(scopes)
                         .WithLoginHint(existingAccount?.Username ?? String.Empty)
