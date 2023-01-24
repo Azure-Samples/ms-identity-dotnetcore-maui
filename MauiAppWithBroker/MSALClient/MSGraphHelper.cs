@@ -94,6 +94,16 @@ namespace MAUI.MSALClient
         }
 
         /// <summary>
+        /// Resets the GraphClientService used by this class
+        /// </summary>
+        /// <returns></returns>
+        public void ResetGraphClientService()
+        {
+            _graphServiceClient = null;
+        }
+
+
+        /// <summary>
         /// Sign in user using MSAL and obtain a token for MS Graph
         /// </summary>
         /// <returns>GraphServiceClient</returns>

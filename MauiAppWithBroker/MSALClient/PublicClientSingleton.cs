@@ -94,11 +94,12 @@ namespace MAUI.MSALClient
         }
 
         /// <summary>
-        /// It will sign out the user.
+        /// Signout the user and delete old GraphServiceClient
         /// </summary>
         /// <returns></returns>
         internal async Task SignOutAsync()
         {
+            MSGraphHelper.ResetGraphClientService();
             await this.MSALClientHelper.SignOutUserAsync().ConfigureAwait(false);
         }
 
