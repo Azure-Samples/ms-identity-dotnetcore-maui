@@ -94,13 +94,22 @@ namespace MAUI.MSALClient
         }
 
         /// <summary>
+        /// Resets the GraphClientService used by this class
+        /// </summary>
+        /// <returns></returns>
+        public void ResetGraphClientService()
+        {
+            _graphServiceClient = null;
+        }
+
+        /// <summary>
         /// Sign in user using MSAL and obtain a token for MS Graph
         /// </summary>
         /// <returns>GraphServiceClient</returns>
         private async Task<GraphServiceClient> SignInAndInitializeGraphServiceClient()
         {
             string token = await this.MSALClient.SignInUserAndAcquireAccessToken(this.GraphScopes);
-            return await InitializeGraphServiceClientAsync(token);
+            return InitializeGraphServiceClientAsync(token);
         }
 
         /// <summary>
@@ -114,7 +123,7 @@ namespace MAUI.MSALClient
             var claimChallenge = WwwAuthenticateParameters.GetClaimChallengeFromResponseHeaders(ex.ResponseHeaders);
 
             string token = await this.MSALClient.SignInUserAndAcquireAccessToken(this.GraphScopes, claimChallenge);
-            return await InitializeGraphServiceClientAsync(token);
+            return InitializeGraphServiceClientAsync(token);
         }
 
         /// <summary>
@@ -124,14 +133,14 @@ namespace MAUI.MSALClient
         /// <returns>
         /// A GraphServiceClient (MS Graph SDK) instance
         /// </returns>
-        private async Task<GraphServiceClient> InitializeGraphServiceClientAsync(string token)
+        private GraphServiceClient InitializeGraphServiceClientAsync(string token)
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             this._graphServiceClient = new GraphServiceClient(client);
 
-            return await Task.FromResult(this._graphServiceClient);
+            return this._graphServiceClient;
         }
     }
 }
