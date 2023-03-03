@@ -63,9 +63,9 @@
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Graph" Version="5.0.0-preview.12" />
-	  <PackageReference Include="Microsoft.Identity.Client" Version="4.47.2" />
-	  <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="2.24.0" />
+          <PackageReference Include="Microsoft.Graph" Version="5.0.0" />
+	  <PackageReference Include="Microsoft.Identity.Client" Version="4.50.0" />
+	  <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="2.26.0" />
 	</ItemGroup>
 
 	<ItemGroup>
