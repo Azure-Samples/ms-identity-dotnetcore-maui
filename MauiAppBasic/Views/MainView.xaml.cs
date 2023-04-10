@@ -42,6 +42,11 @@ namespace MauiAppBasic.Views
                 await ShowMessage("Login failed", "User cancelled sign in."); 
                 return;
             }
+            catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS65004"))
+            {
+                await ShowMessage("Login failed", "User did not consent to app requirements."); 
+                return;
+            }
 
             await Shell.Current.GoToAsync("userview");
         }
