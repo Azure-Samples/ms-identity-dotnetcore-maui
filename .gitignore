@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/MauiAppB2C/obj
+/MauiAppBasic/obj
+/MauiAppBasic/MauiAppBasic.csproj.user
+/MauiAppBasic/bin/Debug
+/MauiAppB2C/MauiB2C.csproj.user
+/MauiAppWithBroker/obj
+/MauiAppWithBroker/MauiAppWithBroker.csproj.user
+/MauiAppWithBroker/bin/Debug
