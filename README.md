@@ -5,6 +5,7 @@ languages:
 - powershell
 products:
 - azure-active-directory
+- dotnet-maui
 description: "You have a MAUI application and you want it to consume Microsoft Graph or your own Web Api using Microsoft Identity Platform to acquire tokens."
 urlFragment: ms-identity-dotnetcore-maui
 ---
