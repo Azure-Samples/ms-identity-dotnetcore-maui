@@ -1,23 +1,23 @@
-﻿---
+---
 page_type: sample
-name: A .NET MAUI app using the WAM broker via MSAL.NET to sign-in a user with Azure AD and acquire an access token to call Microsoft Graph
-description: A a MAUI (iOS, Android, UWP) .NET app using the WAM broker via MSAL.NET to sign-in a user with Azure AD and acquire an access token to call Microsoft Graph on their behalf
+name: A .NET MAUI app using the WAM broker via MSAL.NET to sign-in a user with Microsoft Entra ID and acquire an access token to call Microsoft Graph
+description: A a MAUI (iOS, Android, UWP) .NET app using the WAM broker via MSAL.NET to sign-in a user with Microsoft Entra ID and acquire an access token to call Microsoft Graph on their behalf
 languages:
     -  csharp
 products:
     - maui
-    - azure-active-directory
+    - microsoft-entra-id
 urlFragment: ms-identity-dotnetcore-maui
 extensions:
 - services: ms-identity
 - platform: MAUI
-- endpoint: AAD v2.0
+- endpoint: Microsoft Entra ID v2.0
 - level: 200
 - client: MAUI (iOS, Android, UWP)
 - service: Microsoft Graph
 ---
 
-# A .NET MAUI app using the WAM broker via MSAL.NET to sign-in a user with Azure AD and acquire an access token to call Microsoft Graph
+# A .NET MAUI app using the WAM broker via MSAL.NET to sign-in a user with Microsoft Entra ID and acquire an access token to call Microsoft Graph
 
 * [Overview](#overview)
 * [Scenario](#scenario)
@@ -40,10 +40,10 @@ This sample demonstrates a MAUI (iOS, Android, UWP) .NET app that signs-in users
 
 This sample demonstrates a MAUI (iOS, Android, UWP) .NET app that signs-in users using the [Web Account Manager \(WAM\)](https://learn.microsoft.com/windows/uwp/security/web-account-manager) broker or [Microsoft Authenticator application](https://www.microsoft.com/en-ca/p/microsoft-authenticator/9nblgggzmcj6?activetab=pivot:overviewtab) to acquire a token to call Microsoft Graph.
 
-1. The client MAUI (iOS, Android, UWP) uses [MSAL.NET](https://aka.ms/msal-net) to activate the [Web Account Manager \(WAM\)](https://learn.microsoft.com/windows/uwp/security/web-account-manager) broker to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Azure AD**.
-1. The **ID Token** proves that the user has successfully authenticated against **Azure AD**.
-1. It then proceeds to also obtain a JWT [Access Token](https://aka.ms/access-tokens) from **Azure AD** for Microsoft Graph.
-1. The access token is used as a *bearer* token to authorize the user to call the Microsoft Graph protected by **Azure AD**.
+1. The client MAUI (iOS, Android, UWP) uses [MSAL.NET](https://aka.ms/msal-net) to activate the [Web Account Manager \(WAM\)](https://learn.microsoft.com/windows/uwp/security/web-account-manager) broker to sign-in a user and obtain a JWT [ID Token](https://aka.ms/id-tokens) from **Microsoft Entra ID**.
+1. The **ID Token** proves that the user has successfully authenticated against **Microsoft Entra ID**.
+1. It then proceeds to also obtain a JWT [Access Token](https://aka.ms/access-tokens) from **Microsoft Entra ID** for Microsoft Graph.
+1. The access token is used as a *bearer* token to authorize the user to call the Microsoft Graph protected by **Microsoft Entra ID**.
 
 ![Scenario Image](./ReadmeFiles/topology.png)
 
@@ -54,8 +54,8 @@ This sample demonstrates a MAUI (iOS, Android, UWP) .NET app that signs-in users
   - [Instructions for MacOS](https://learn.microsoft.com/dotnet/maui/get-started/installation?tabs=vsma)
 
 * For **Android** and/or **iOS** devices the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) is used as the Broker app.
-* An **Azure AD** tenant. For more information, see: [How to get an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/test-setup-environment#get-a-test-tenant)
-* A user account in your **Azure AD** tenant. This sample will not work with a **personal Microsoft account**. If you're signed in to the [Azure portal](https://portal.azure.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
+* An **Microsoft Entra ID** tenant. For more information, see: [How to get a Microsoft Entra tenant](https://docs.microsoft.com/azure/active-directory/develop/test-setup-environment#get-a-test-tenant)
+* A user account in your **Microsoft Entra ID** tenant. This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
 ## Setup the sample
 
@@ -83,7 +83,7 @@ There is one project in this sample. To register it, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
+  - **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
   <details>
@@ -98,7 +98,7 @@ There is one project in this sample. To register it, you can:
        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
        ```
 
-    1. Run the script to create your Azure AD application and configure the code of the sample application accordingly.
+    1. Run the script to create your Microsoft Entra application and configure the code of the sample application accordingly.
     1. For interactive process -in PowerShell, run:
 
        ```PowerShell
@@ -110,16 +110,16 @@ There is one project in this sample. To register it, you can:
 
   </details>
 
-#### Choose the Azure AD tenant where you want to create your applications
+#### Choose the Microsoft Entra tenant where you want to create your applications
 
 To manually register the apps, as a first step you'll need to:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Azure AD tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. If your account is present in more than one Microsoft Entra tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra tenant.
 
 #### Register the client app (active-directory-maui-with-broker-v2)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure Active Directory** service.
+1. Navigate to the [Microsoft Entra admin center](https://entra.microsoft.com) and select the **Microsoft Entra ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `active-directory-maui-with-broker-v2`.
@@ -128,7 +128,7 @@ To manually register the apps, as a first step you'll need to:
 1. In the **Overview** blade, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
 1. In the app's registration screen, select the **Authentication** blade to the left.
 1. If you don't have a platform added, select **Add a platform** and select the **Public client (mobile & desktop)** option.
-    1. In the **Redirect URIs** section, add **ms-appx-web://microsoft.aad.brokerplugin/{ClientId}**.
+    1. In the **Redirect URIs** section, add **ms-appx-web://microsoft.AAD.brokerplugin/{ClientId}**.
         The **ClientId** is the Id of the App Registration and can be found under **Overview/Application (client) ID**
 > If you plan to use the app on an **Android** device, select **Add a platform** and select the **Android** option. Follow the instructions to create a new redirect URI. Note the URI to be used later in the app configuration.
 
@@ -150,8 +150,8 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `appsettings.json` file.
-1. Find the key `TenantId` and replace the existing value with your Azure AD tenant/directory ID.
-1. Find the key `ClientId` and replace the existing value with the application ID (clientId) of `active-directory-maui-with-broker-v2` app copied from the Azure portal.
+1. Find the key `TenantId` and replace the existing value with your Microsoft Entra tenant/directory ID.
+1. Find the key `ClientId` and replace the existing value with the application ID (clientId) of `active-directory-maui-with-broker-v2` app copied from the Microsoft Entra admin center.
 1. Find the key `CacheFileName` and replace the existing value with the name of the cache file you wish to use with WinUI caching (not used in Android nor iOS).
 1. Find the key `CacheDir` and replace the existing value with the directory path storing cache file you wish to use with WinUI caching (not used in Android nor iOS).
 1. Find the key `AndroidReplyUrl` and replace the existing value with the Android redirect URI for your application, if you created one during app registration. You can read more about Android redirect URI formats [here](https://learn.microsoft.com/azure/active-directory/develop/redirect-uris-ios).
@@ -414,17 +414,17 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
   * [PublicClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)
   * [Recommended call pattern in public client applications](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-call-pattern-in-public-client-applications)
   * [Acquiring tokens interactively in public client application flows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-* To understand more about the AAD V2 endpoint see https://aka.ms/aaddevv2
-* For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414).
+* To understand more about the Microsoft Entra ID V2 endpoint see https://aka.ms/aaddevv2
+* For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](http://go.microsoft.com/fwlink/?LinkId=394414).
 * For more information about Microsoft Graph, please visit [the Microsoft Graph homepage](https://graph.microsoft.io/)
-* [Microsoft identity platform (Azure Active Directory for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
-* [Azure AD code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+* [Microsoft identity platform (Microsoft Entra ID for developers)](https://docs.microsoft.com/azure/active-directory/develop/)
+* [Microsoft Entra ID code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
 * [Overview of Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
 * [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 * [Configure a client application to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis)
-* [Understanding Azure AD application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)
+* [Understanding Microsoft Entra application consent experiences](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience)
 * [Understand user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
-* [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Authentication Scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios)
+* [Application and service principal objects in Microsoft Entra ID](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Authentication Scenarios for Microsoft Entra ID](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios)
 * [Building Zero Trust ready apps](https://aka.ms/ztdevsession)
 * [National Clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints)

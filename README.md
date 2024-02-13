@@ -4,13 +4,13 @@ languages:
 - csharp
 - powershell
 products:
-- azure-active-directory
+- microsoft-entra-id
 - dotnet-maui
 description: "You have a MAUI application and you want it to consume Microsoft Graph or your own Web Api using Microsoft Identity Platform to acquire tokens."
 urlFragment: ms-identity-dotnetcore-maui
 ---
 
-# A MAUI mobile or desktop application using Azure AD for authentication
+# A MAUI mobile or desktop application using Microsoft Entra ID for authentication
 
 ## About this sample
 
@@ -42,9 +42,9 @@ To run this sample, you'll need:
   - Android SDK level 27 (oreo) and 28 (pie), and Android SDK build tools 27.0.3 are also required. These are not installed through the VS Installer, so instead use the Android SDK Manager (Visual Studio > Tools > Android > Android SDK Manager…)
 - An Internet connection
 - A Windows or OS X machine (necessary if you want to run the app on their respective platforms)
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
+- a Microsoft Entra tenant. For more information on how to get a Microsoft Entra tenant, see [How to get a Microsoft Entra tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/)
   - If you wish to run the B2C sample you will need an[Azure Active Directory B2C Tenant](https://learn.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)
-- A user account in your Azure AD tenant. This sample will not work with a Microsoft account (formerly Windows Live account). Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory before, you need to do that now.
+- A user account in your Microsoft Entra tenant. This sample will not work with a Microsoft account (formerly Windows Live account). Therefore, if you signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Setup [MAUI](https://learn.microsoft.com/dotnet/maui/get-started/installation?tabs=vswin&view=net-maui-7.0). This will require Visual Studio on PC, and on a Mac Machine.
 
 ### Step 1:  Clone or download this repository
