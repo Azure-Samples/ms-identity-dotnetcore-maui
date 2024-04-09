@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-ios;net6.0-android</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MauiAppBasic</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -28,12 +26,12 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
-	  <BuildIpa>True</BuildIpa>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+		<BuildIpa>True</BuildIpa>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios|AnyCPU'">
-	  <BuildIpa>True</BuildIpa>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+		<BuildIpa>True</BuildIpa>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -55,19 +53,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="MSALClient\PublicClientWrapper.cs" />
+		<Compile Remove="MSALClient\PublicClientWrapper.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\AzureADConfig.cs" Link="MSALClient\AzureADConfig.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\Exception.cs" Link="MSALClient\Exception.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\IdentityLogger.cs" Link="MSALClient\IdentityLogger.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\MSALClientHelper.cs" Link="MSALClient\MSALClientHelper.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\MSGraphApiConfig.cs" Link="MSALClient\MSGraphApiConfig.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\MSGraphHelper.cs" Link="MSALClient\MSGraphHelper.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\PlatformConfig.cs" Link="MSALClient\PlatformConfig.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\PublicClientSingleton.cs" Link="MSALClient\PublicClientSingleton.cs" />
-	  <Compile Include="..\MauiAppWithBroker\MSALClient\WindowsHelper.cs" Link="MSALClient\WindowsHelper.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\AzureADConfig.cs" Link="MSALClient\AzureADConfig.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\Exception.cs" Link="MSALClient\Exception.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\IdentityLogger.cs" Link="MSALClient\IdentityLogger.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\MSALClientHelper.cs" Link="MSALClient\MSALClientHelper.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\MSGraphApiConfig.cs" Link="MSALClient\MSGraphApiConfig.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\MSGraphHelper.cs" Link="MSALClient\MSGraphHelper.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\PlatformConfig.cs" Link="MSALClient\PlatformConfig.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\PublicClientSingleton.cs" Link="MSALClient\PublicClientSingleton.cs" />
+		<Compile Include="..\MauiAppWithBroker\MSALClient\WindowsHelper.cs" Link="MSALClient\WindowsHelper.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,35 +73,39 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-          <PackageReference Include="Microsoft.Graph" Version="5.0.0" />
-	  <PackageReference Include="Microsoft.Identity.Client" Version="4.50.0" />
-	  <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="2.26.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Graph" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Identity.Client" Version="4.61.0" />
+		<PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.61.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows10.0.19041.0'">
+		<PackageReference Include="Microsoft.Identity.Client.Desktop" Version="4.61.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Properties\Resources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resources.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\MainView.xaml.cs">
-	    <DependentUpon>MainView.xaml</DependentUpon>
-	  </Compile>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MainView.xaml.cs">
+			<DependentUpon>MainView.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Properties\Resources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\UserView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="Views\UserView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>
