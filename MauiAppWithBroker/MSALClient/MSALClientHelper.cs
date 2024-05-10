@@ -2,6 +2,9 @@
 // Licensed under the MIT License.
 
 using Microsoft.Identity.Client;
+#if WINDOWS
+using Microsoft.Identity.Client.Desktop;
+#endif
 using Microsoft.Identity.Client.Extensions.Msal;
 using Microsoft.IdentityModel.Abstractions;
 using System.Diagnostics;
@@ -88,7 +91,6 @@ namespace MAUI.MSALClient
                 .WithExperimentalFeatures() // this is for upcoming logger
                 .WithLogging(new IdentityLogger(EventLogLevel.Warning), enablePiiLogging: false)    // This is the currently recommended way to log MSAL message. For more info refer to https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging. Set Identity Logging level to Warning which is a middle ground
                 .WithClientCapabilities(new string[] { "cp1" })                                     // declare this client app capable of receiving CAE events- https://aka.ms/clientcae
-
                 .WithIosKeychainSecurityGroup("com.microsoft.adalcache");
         }
 
@@ -101,6 +103,9 @@ namespace MAUI.MSALClient
             // Initialize the MSAL library by building a public client application
             this.PublicClientApplication = this.PublicClientApplicationBuilder
                 .WithRedirectUri(PlatformConfig.Instance.RedirectUri)   // redirect URI is set later in PlatformConfig when the platform has been decided
+#if WINDOWS
+                .WithWindowsEmbeddedBrowserSupport()
+#endif
                 .Build();
 
             await AttachTokenCache();
@@ -116,7 +121,12 @@ namespace MAUI.MSALClient
             // Initialize the MSAL library by building a public client application
             this.PublicClientApplication = this.PublicClientApplicationBuilder
                 .WithRedirectUri(PlatformConfig.Instance.RedirectUri)   // redirect URI is set later in PlatformConfig when the platform is decided
+#if ANDROID || IOS
                 .WithBroker()
+#endif
+#if WINDOWS
+                .WithBroker(new BrokerOptions(BrokerOptions.OperatingSystems.Windows))
+#endif
                 .WithParentActivityOrWindow(() => PlatformConfig.Instance.ParentWindow)   // This is required when using the WAM broker and is set later in PlatformConfig when the platform has been decided
                 .Build();
 

@@ -10,8 +10,6 @@ namespace MauiAppWithBroker.Views
 {
     public partial class MainView : ContentPage
     {
-        private MSALClientHelper MSALClientHelper;
-
         public MainView()
         {
             InitializeComponent();
