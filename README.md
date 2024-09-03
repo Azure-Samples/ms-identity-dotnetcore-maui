@@ -51,7 +51,7 @@ To run the sample on VS Code, you'll need:
 
 - For iOS/Mac, A specific version of Xcode, which depends on the version of .NET MAUI that you're using is needed. For information, see [Release Versions](https://github.com/dotnet/maui/wiki/Release-Versions), make sure to install the iOS simulations during the xcode installation.
 - [VS Code](https://code.visualstudio.com/download). Install or update Visual Studio Code.
-  - In Visual Studio Code, in the Extensions tab, search for ".NET MAUI" and install the .NET MAUI extension. The .NET MAUI extension automatically        installs the C# Dev Kit and C# extensions, which are required for the .NET MAUI extension to run.
+  - In Visual Studio Code, in the Extensions tab, search for ".NET MAUI" and install the .NET MAUI extension. The .NET MAUI extension automatically installs the C# Dev Kit and C# extensions, which are required for the .NET MAUI extension to run.
 - Install [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/windows)
 - Install the .NET MAUI workload.
   - Windows - dotnet workload install maui
