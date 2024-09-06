@@ -49,7 +49,7 @@ To run this sample, you'll need:
 
 To run the sample on VS Code, you'll need:
 
-- For iOS/Mac, A specific version of Xcode, which depends on the version of .NET MAUI that you're using is needed. For information, see [Release Versions](https://github.com/dotnet/maui/wiki/Release-Versions), make sure to install the iOS simulators during the xcode installation.
+- For iOS/Mac, A specific version of Xcode, which depends on the version of .NET MAUI that you're using is needed. For information, see [Release Versions](https://github.com/dotnet/maui/wiki/Release-Versions), make sure to install the iOS simulations during the xcode installation.
 - [VS Code](https://code.visualstudio.com/download). Install or update Visual Studio Code.
   - In Visual Studio Code, in the Extensions tab, search for ".NET MAUI" and install the .NET MAUI extension. The .NET MAUI extension automatically installs the C# Dev Kit and C# extensions, which are required for the .NET MAUI extension to run.
 - Install [.NET](https://learn.microsoft.com/en-us/dotnet/core/install/windows)
@@ -59,14 +59,14 @@ To run the sample on VS Code, you'll need:
 - While trying to build and launch the MAUI project on Mac, if you run into "Please Verify the Xcode Installation" Error, do the following:
   - In your Terminal, first run:
     $ /Applications/Xcode.app/Contents/Developer/usr/bin/simctl delete unavailable
-  - Reboot the machine, then reopen your MAUI solution
+  - Reboot, then reopen your MAUI solution
 - For iOS/Mac, setup provisioning on your device by following the below steps:
   - Open Xcode -> Settings -> Accounts, Add your Microsoft Apple ID
-  - Click on "Download Manual Profiles" and wait for it to finish, this should download the certificates onto the machine.
+  - Click on "Download Manual Profiles" and wait for it to finish
 - Open the MAUI project in VS Code, create .vscode/launch.json from the root folder and add ".NET MAUI" as the name of the launch configuration.
-- For building the MAUI project, right click on the project in Solution Explorer and select "Build".
+- For building the MAUI project, right click on the project in Solution Explorere and select "Build".
 - For launching the MAUI sample app in VS Code, go to "Run and Debug", slect ".NET MAUI" in the Run as tab and click on "Start Debugging" icon.
-- If we want to launch the sample app on an actual physical device/select a different iOS simulator device, click on the MAUI project in the solution explorer and then click on the curly braces('{}') in the bottom right corner, select "Debug Target", that should give a list of all the available physical devices and simulators.
+- If we want to launch the sample app on an actual physical device/select a different iOS simulator device, click on the MAUI project in the solution explorer and then click on the curly braces('{}') in the button right corner, select "Debug Target", that should give a list of all the available physical devices and emulators.
 
 ### Step 1:  Clone or download this repository
 
