@@ -4,6 +4,7 @@ using Foundation;
 using MAUIB2C.MSALClient;
 using Microsoft.Identity.Client;
 using UIKit;
+using Microsoft.Maui;
 namespace MauiB2C;
 
 [Register("AppDelegate")]
