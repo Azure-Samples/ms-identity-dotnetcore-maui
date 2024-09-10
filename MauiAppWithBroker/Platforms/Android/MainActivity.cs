@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using MAUI.MSALClient;
 using Microsoft.Identity.Client;
+using Microsoft.Maui;
 
 namespace MauiAppWithBroker
 {
