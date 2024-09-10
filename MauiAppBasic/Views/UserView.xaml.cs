@@ -4,6 +4,7 @@ using Microsoft.Graph;
 using Microsoft.Identity.Client;
 using System.Net.Http.Headers;
 using System.Reflection;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace MauiAppBasic.Views;
 
