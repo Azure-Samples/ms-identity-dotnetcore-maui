@@ -90,7 +90,7 @@ namespace MAUIB2C.MSALClient
         {
             // Initialize the MSAL library by building a public client application
             this.PublicClientApplication = this.PublicClientApplicationBuilder
-                .WithRedirectUri($"msal{PublicClientSingleton.Instance.MSALClientHelper.AzureADB2CConfig.ClientId}://auth")
+                .WithRedirectUri(PlatformConfig.Instance.RedirectUri)
                 .Build();
 
             await AttachTokenCache();

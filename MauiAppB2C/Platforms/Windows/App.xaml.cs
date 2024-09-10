@@ -21,7 +21,7 @@ public partial class App : MauiWinUIApplication
 		this.InitializeComponent();
 
         // configure redirect URI for your application
-        PlatformConfig.Instance.RedirectUri = $"msal{PublicClientSingleton.Instance.MSALClientHelper.AzureADB2CConfig.ClientId}://auth";
+        PlatformConfig.Instance.RedirectUri = "http://localhost";
 
         // Initialize MSAL
         IAccount existinguser = Task.Run(async () => await PublicClientSingleton.Instance.MSALClientHelper.InitializePublicClientAppAsync()).Result;
