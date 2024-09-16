@@ -5,6 +5,7 @@ using Foundation;
 using MAUI.MSALClient;
 using Microsoft.Identity.Client;
 using UIKit;
+using Microsoft.Maui;
 
 namespace MauiAppWithBroker
 {

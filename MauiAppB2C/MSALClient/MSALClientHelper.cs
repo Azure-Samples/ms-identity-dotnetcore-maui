@@ -5,6 +5,8 @@ using Microsoft.Identity.Client;
 using Microsoft.Identity.Client.Extensions.Msal;
 using Microsoft.IdentityModel.Abstractions;
 using System.Diagnostics;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices;
 
 namespace MAUIB2C.MSALClient
 {

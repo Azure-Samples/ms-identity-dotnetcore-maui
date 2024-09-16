@@ -6,6 +6,7 @@ using Android.Content.PM;
 using Android.OS;
 using MAUIB2C.MSALClient;
 using Microsoft.Identity.Client;
+using Microsoft.Maui;
 
 namespace MauiB2C;
 
